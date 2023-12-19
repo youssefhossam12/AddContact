@@ -1,0 +1,19 @@
+﻿@model Contact
+@{
+    ViewData["Title"] = "Delete Contact";
+}
+
+<h2>Delete Contact</h2>
+
+<p>Are you sure you want to delete <b> @Model.FirstName @Model.LastName </b></p>
+
+
+
+<form asp-controller="Contact" asp-action="Delete" method="post">
+    <input type="hidden" asp-for="ContactId" />
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-danger">Yes, Delete</button>
+        <a asp-controller="Contact" asp-action="Details" asp-route-id="@Model.ContactId" class="btn btn-secondary">No, Cancel</a>
+    </div>
+</form>
